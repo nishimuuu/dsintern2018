@@ -1,0 +1,7 @@
+axes.grid: True
+grid.color: 424242
+grid.linestyle: :
+grid.linewidth: 0.2
+grid.alpha: 0.8
+
+
