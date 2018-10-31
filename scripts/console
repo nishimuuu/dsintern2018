@@ -1,0 +1,4 @@
+#!/bin/sh -xe 
+ CURRENT=$(cd $(dirname $0) && pwd) 
+ cd $CURRENT/../src 
+

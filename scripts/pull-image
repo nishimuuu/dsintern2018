@@ -1,0 +1,8 @@
+#!/bin/bash
+
+REPOSITORY_TAG="$CONTAINER_NAME:latest"
+aws ecr get-login  --no-include-email --region ap-northeast-1 | bash
+
+REMOTE_REPOSITORY_URI=$(aws ecr describe-repositories --repository-names $CONTAINER_NAME --query "repositories[0].repositoryUri" | sed 's/"//g')
+REMOTE_REPOSITORY_TAG="$REMOTE_REPOSITORY_URI:latest"
+docker pull $REMOTE_REPOSITORY_TAG

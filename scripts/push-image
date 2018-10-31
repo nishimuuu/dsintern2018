@@ -1,0 +1,17 @@
+#!/bin/bash
+
+CURRENT=$(cd $(dirname $0) && pwd) 
+cd $CURRENT/../
+
+TAG=$(md5 -s $(date +%F%H%M%S) | sed 's/^.*= //g')
+
+REPOSITORY_TAG="$CONTAINER_NAME:$TAG"
+docker login -u nishimuuuuuu
+
+REMOTE_REPOSITORY_URI="nishimuuuuuu/my_jupyter"
+REMOTE_REPOSITORY_TAG="$REMOTE_REPOSITORY_URI:$TAG"
+REMOTE_REPOSITORY_TAG_LATEST="$REMOTE_REPOSITORY_URI:latest"
+
+docker tag $REPOSITORY_TAG $REMOTE_REPOSITORY_TAG
+docker push $REMOTE_REPOSITORY_TAG
+docker push $REMOTE_REPOSITORY_TAG_LATEST

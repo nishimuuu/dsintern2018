@@ -1,0 +1,9 @@
+#!/bin/bash -x
+CURRENT=$(cd $(dirname $0) && pwd) 
+cd $CURRENT/../etc
+
+role_arn=$(aws iam create-role --role-name $role_name --assume-role-policy-document file://policy.json --query "Role.Arn" | sed 's/"//g')
+aws iam attach-role-policy --role-name $role_name --policy-arn arn:aws:iam::aws:policy/AmazonSageMakerFullAccess
+
+aws sagemaker create-notebook-instance --notebook-instance-name $notebook_instance_name --instance-type ml.t2.medium --subnet-id $subnet_id --security-group-ids $security_group_ids --role-arn $role_arn
+aws sagemaker start-notebook-instance --notebook-instance-name $notebook_instance_name

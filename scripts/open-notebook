@@ -1,0 +1,4 @@
+#!/bin/bash -x
+
+open https://$(aws sagemaker describe-notebook-instance --notebook-instance-name $notebook_instance_name --query "Url" | sed 's/"//g')
+

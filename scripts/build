@@ -1,0 +1,5 @@
+#!/bin/sh -xe 
+
+CURRENT=$(cd $(dirname $0) && pwd) 
+cd $CURRENT/../src 
+docker build -t nishimuuuuuu/my_jupyter .

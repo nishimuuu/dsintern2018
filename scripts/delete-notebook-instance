@@ -1,0 +1,5 @@
+#!/bin/bash -x
+
+aws sagemaker delete-notebook-instance --notebook-instance-name $notebook_instance_name
+aws iam detach-role-policy --role-name $role_name --policy-arn arn:aws:iam::aws:policy/AmazonSageMakerFullAccess
+aws iam delete-role --role-name $role_name

@@ -1,0 +1,10 @@
+{
+  "jobDefinitionName": "sample_job",
+  "type": "container",
+  "image": "nishimuuuuuu/my_jupyter",
+  "vcpus": 1,
+  "memory": 100,
+  "command": [],
+  "environment": [],
+  "user": "root"
+}

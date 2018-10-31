@@ -1,0 +1,4 @@
+#!/bin/sh -xe 
+brew install terraform direnv 
+brew cask install docker
+pip install awscli

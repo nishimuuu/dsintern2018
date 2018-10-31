@@ -1,0 +1,2 @@
+#!/bin/bash -x
+aws sagemaker stop-notebook-instance --notebook-instance-name $notebook_instance_name
